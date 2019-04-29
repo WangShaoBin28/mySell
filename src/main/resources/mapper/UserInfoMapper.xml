@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.mysell.dao.UserInfoMapper">
   <resultMap id="BaseResultMap" type="com.app.mysell.entity.UserInfoEntity">
-    <!--@mbg.generated-->
+
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
@@ -11,30 +11,30 @@
     <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
-    <!--@mbg.generated-->
+
     id, user_name, phone, openid, createTime, updateTime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
+
     select 
     <include refid="Base_Column_List" />
     from mysell.user_info
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
+
     delete from mysell.user_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.app.mysell.entity.UserInfoEntity" useGeneratedKeys="true">
-    <!--@mbg.generated-->
+
     insert into mysell.user_info (user_name, phone, openid, 
       createTime, updateTime)
     values (#{userName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
       #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.app.mysell.entity.UserInfoEntity" useGeneratedKeys="true">
-    <!--@mbg.generated-->
+
     insert into mysell.user_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userName != null">
@@ -72,7 +72,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.app.mysell.entity.UserInfoEntity">
-    <!--@mbg.generated-->
+
     update mysell.user_info
     <set>
       <if test="userName != null">
@@ -94,7 +94,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.UserInfoEntity">
-    <!--@mbg.generated-->
+
     update mysell.user_info
     set user_name = #{userName,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},

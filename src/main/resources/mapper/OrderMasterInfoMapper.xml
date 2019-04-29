@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.mysell.dao.OrderMasterInfoMapper">
   <resultMap id="BaseResultMap" type="com.app.mysell.entity.OrderMasterInfoEntity">
-    <!--@mbg.generated-->
+
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="buyer_name" jdbcType="VARCHAR" property="buyerName" />
     <result column="buyer_phone" jdbcType="VARCHAR" property="buyerPhone" />
@@ -15,24 +15,24 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    <!--@mbg.generated-->
+
     id, buyer_name, buyer_phone, buyer_address, buyer_openid, order_amount, order_status, 
     pay_status, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
+
     select 
     <include refid="Base_Column_List" />
     from mysell.order_master_info
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
+
     delete from mysell.order_master_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.app.mysell.entity.OrderMasterInfoEntity">
-    <!--@mbg.generated-->
+
     insert into mysell.order_master_info (id, buyer_name, buyer_phone, 
       buyer_address, buyer_openid, order_amount, 
       order_status, pay_status, create_time, 
@@ -43,7 +43,7 @@
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.app.mysell.entity.OrderMasterInfoEntity">
-    <!--@mbg.generated-->
+
     insert into mysell.order_master_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -111,7 +111,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.app.mysell.entity.OrderMasterInfoEntity">
-    <!--@mbg.generated-->
+
     update mysell.order_master_info
     <set>
       <if test="buyerName != null">
@@ -145,7 +145,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.OrderMasterInfoEntity">
-    <!--@mbg.generated-->
+
     update mysell.order_master_info
     set buyer_name = #{buyerName,jdbcType=VARCHAR},
       buyer_phone = #{buyerPhone,jdbcType=VARCHAR},

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.mysell.dao.SellerInfoMapper">
   <resultMap id="BaseResultMap" type="com.app.mysell.entity.SellerInfoEntity">
-    <!--@mbg.generated-->
+
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="pass_word" jdbcType="VARCHAR" property="passWord" />
@@ -11,23 +11,23 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    <!--@mbg.generated-->
+
     id, user_name, pass_word, phone, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
+
     select 
     <include refid="Base_Column_List" />
     from mysell.seller_info
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
+
     delete from mysell.seller_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.app.mysell.entity.SellerInfoEntity">
-    <!--@mbg.generated-->
+
     insert into mysell.seller_info (id, user_name, pass_word, 
       phone, create_time, update_time
       )
@@ -36,7 +36,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.app.mysell.entity.SellerInfoEntity">
-    <!--@mbg.generated-->
+
     insert into mysell.seller_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.app.mysell.entity.SellerInfoEntity">
-    <!--@mbg.generated-->
+
     update mysell.seller_info
     <set>
       <if test="userName != null">
@@ -102,7 +102,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.SellerInfoEntity">
-    <!--@mbg.generated-->
+
     update mysell.seller_info
     set user_name = #{userName,jdbcType=VARCHAR},
       pass_word = #{passWord,jdbcType=VARCHAR},
