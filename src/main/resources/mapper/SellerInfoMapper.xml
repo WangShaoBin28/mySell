@@ -3,12 +3,12 @@
 <mapper namespace="com.app.mysell.dao.SellerInfoMapper">
   <resultMap id="BaseResultMap" type="com.app.mysell.entity.SellerInfoEntity">
 
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="pass_word" jdbcType="VARCHAR" property="passWord" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <id column="id" property="id" />
+    <result column="user_name" property="userName" />
+    <result column="pass_word" property="passWord" />
+    <result column="phone" property="phone" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
 
@@ -19,20 +19,20 @@
     select 
     <include refid="Base_Column_List" />
     from mysell.seller_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
 
     delete from mysell.seller_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </delete>
   <insert id="insert" parameterType="com.app.mysell.entity.SellerInfoEntity">
 
     insert into mysell.seller_info (id, user_name, pass_word, 
       phone, create_time, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+    values (#{id}, #{userName}, #{passWord}, 
+      #{phone}, #{createTime}, #{updateTime}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.app.mysell.entity.SellerInfoEntity">
@@ -60,22 +60,22 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=BIGINT},
+        #{id},
       </if>
       <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
+        #{userName},
       </if>
       <if test="passWord != null">
-        #{passWord,jdbcType=VARCHAR},
+        #{passWord},
       </if>
       <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
+        #{phone},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+        #{updateTime},
       </if>
     </trim>
   </insert>
@@ -84,31 +84,31 @@
     update mysell.seller_info
     <set>
       <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
+        user_name = #{userName},
       </if>
       <if test="passWord != null">
-        pass_word = #{passWord,jdbcType=VARCHAR},
+        pass_word = #{passWord},
       </if>
       <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
+        phone = #{phone},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.SellerInfoEntity">
 
     update mysell.seller_info
-    set user_name = #{userName,jdbcType=VARCHAR},
-      pass_word = #{passWord,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=BIGINT}
+    set user_name = #{userName},
+      pass_word = #{passWord},
+      phone = #{phone},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
   </update>
 </mapper>

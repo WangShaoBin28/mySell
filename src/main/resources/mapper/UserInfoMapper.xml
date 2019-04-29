@@ -3,12 +3,12 @@
 <mapper namespace="com.app.mysell.dao.UserInfoMapper">
   <resultMap id="BaseResultMap" type="com.app.mysell.entity.UserInfoEntity">
 
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="openid" jdbcType="VARCHAR" property="openid" />
-    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <id column="id" property="id" />
+    <result column="user_name" property="userName" />
+    <result column="phone" property="phone" />
+    <result column="openid" property="openid" />
+    <result column="createTime" property="createtime" />
+    <result column="updateTime" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
 
@@ -19,19 +19,19 @@
     select 
     <include refid="Base_Column_List" />
     from mysell.user_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
 
     delete from mysell.user_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.app.mysell.entity.UserInfoEntity" useGeneratedKeys="true">
 
     insert into mysell.user_info (user_name, phone, openid, 
       createTime, updateTime)
-    values (#{userName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+    values (#{userName}, #{phone}, #{openid}, 
+      #{createtime}, #{updatetime})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.app.mysell.entity.UserInfoEntity" useGeneratedKeys="true">
 
@@ -55,19 +55,19 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
+        #{userName},
       </if>
       <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
+        #{phone},
       </if>
       <if test="openid != null">
-        #{openid,jdbcType=VARCHAR},
+        #{openid},
       </if>
       <if test="createtime != null">
-        #{createtime,jdbcType=TIMESTAMP},
+        #{createtime},
       </if>
       <if test="updatetime != null">
-        #{updatetime,jdbcType=TIMESTAMP},
+        #{updatetime},
       </if>
     </trim>
   </insert>
@@ -76,31 +76,31 @@
     update mysell.user_info
     <set>
       <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
+        user_name = #{userName},
       </if>
       <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
+        phone = #{phone},
       </if>
       <if test="openid != null">
-        openid = #{openid,jdbcType=VARCHAR},
+        openid = #{openid},
       </if>
       <if test="createtime != null">
-        createTime = #{createtime,jdbcType=TIMESTAMP},
+        createTime = #{createtime},
       </if>
       <if test="updatetime != null">
-        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+        updateTime = #{updatetime},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.UserInfoEntity">
 
     update mysell.user_info
-    set user_name = #{userName,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      openid = #{openid,jdbcType=VARCHAR},
-      createTime = #{createtime,jdbcType=TIMESTAMP},
-      updateTime = #{updatetime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=BIGINT}
+    set user_name = #{userName},
+      phone = #{phone},
+      openid = #{openid},
+      createTime = #{createtime},
+      updateTime = #{updatetime}
+    where id = #{id}
   </update>
 </mapper>

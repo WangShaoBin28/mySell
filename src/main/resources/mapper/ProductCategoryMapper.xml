@@ -3,14 +3,13 @@
 <mapper namespace="com.app.mysell.dao.ProductCategoryMapper">
   <resultMap id="BaseResultMap" type="com.app.mysell.entity.ProductCategoryEntity">
 
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
-    <result column="category_type" jdbcType="VARCHAR" property="categoryType" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <id column="id" property="id" />
+    <result column="category_name"  property="categoryName" />
+    <result column="category_type" property="categoryType" />
+    <result column="create_time"  property="createTime" />
+    <result column="update_time"  property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-
     id, category_name, category_type, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -18,19 +17,19 @@
     select 
     <include refid="Base_Column_List" />
     from mysell.product_category
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
 
     delete from mysell.product_category
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.app.mysell.entity.ProductCategoryEntity" useGeneratedKeys="true">
 
     insert into mysell.product_category (category_name, category_type, create_time, 
       update_time)
-    values (#{categoryName,jdbcType=VARCHAR}, #{categoryType,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    values (#{categoryName}, #{categoryType}, #{createTime}, 
+      #{updateTime})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.app.mysell.entity.ProductCategoryEntity" useGeneratedKeys="true">
 
@@ -51,16 +50,16 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="categoryName != null">
-        #{categoryName,jdbcType=VARCHAR},
+        #{categoryName},
       </if>
       <if test="categoryType != null">
-        #{categoryType,jdbcType=VARCHAR},
+        #{categoryType},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+        #{updateTime},
       </if>
     </trim>
   </insert>
@@ -69,27 +68,27 @@
     update mysell.product_category
     <set>
       <if test="categoryName != null">
-        category_name = #{categoryName,jdbcType=VARCHAR},
+        category_name = #{categoryName},
       </if>
       <if test="categoryType != null">
-        category_type = #{categoryType,jdbcType=VARCHAR},
+        category_type = #{categoryType},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.ProductCategoryEntity">
 
     update mysell.product_category
-    set category_name = #{categoryName,jdbcType=VARCHAR},
-      category_type = #{categoryType,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=BIGINT}
+    set category_name = #{categoryName},
+      category_type = #{categoryType},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
   </update>
 </mapper>

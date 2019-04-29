@@ -3,20 +3,19 @@
 <mapper namespace="com.app.mysell.dao.OrderMasterInfoMapper">
   <resultMap id="BaseResultMap" type="com.app.mysell.entity.OrderMasterInfoEntity">
 
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="buyer_name" jdbcType="VARCHAR" property="buyerName" />
-    <result column="buyer_phone" jdbcType="VARCHAR" property="buyerPhone" />
-    <result column="buyer_address" jdbcType="INTEGER" property="buyerAddress" />
-    <result column="buyer_openid" jdbcType="VARCHAR" property="buyerOpenid" />
+    <id column="id" property="id" />
+    <result column="buyer_name" property="buyerName" />
+    <result column="buyer_phone" property="buyerPhone" />
+    <result column="buyer_address" property="buyerAddress" />
+    <result column="buyer_openid" property="buyerOpenid" />
     <result column="order_amount" jdbcType="DECIMAL" property="orderAmount" />
-    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
-    <result column="pay_status" jdbcType="INTEGER" property="payStatus" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="order_status" property="orderStatus" />
+    <result column="pay_status" property="payStatus" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-
-    id, buyer_name, buyer_phone, buyer_address, buyer_openid, order_amount, order_status, 
+    id, buyer_name, buyer_phone, buyer_address, buyer_openid, order_amount, order_status,
     pay_status, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -24,12 +23,12 @@
     select 
     <include refid="Base_Column_List" />
     from mysell.order_master_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
 
     delete from mysell.order_master_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </delete>
   <insert id="insert" parameterType="com.app.mysell.entity.OrderMasterInfoEntity">
 
@@ -37,10 +36,10 @@
       buyer_address, buyer_openid, order_amount, 
       order_status, pay_status, create_time, 
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{buyerName,jdbcType=VARCHAR}, #{buyerPhone,jdbcType=VARCHAR}, 
-      #{buyerAddress,jdbcType=INTEGER}, #{buyerOpenid,jdbcType=VARCHAR}, #{orderAmount,jdbcType=DECIMAL}, 
-      #{orderStatus,jdbcType=INTEGER}, #{payStatus,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+    values (#{id}, #{buyerName}, #{buyerPhone}, 
+      #{buyerAddress}, #{buyerOpenid}, #{orderAmount}, 
+      #{orderStatus}, #{payStatus}, #{createTime}, 
+      #{updateTime})
   </insert>
   <insert id="insertSelective" parameterType="com.app.mysell.entity.OrderMasterInfoEntity">
 
@@ -79,34 +78,34 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=BIGINT},
+        #{id},
       </if>
       <if test="buyerName != null">
-        #{buyerName,jdbcType=VARCHAR},
+        #{buyerName},
       </if>
       <if test="buyerPhone != null">
-        #{buyerPhone,jdbcType=VARCHAR},
+        #{buyerPhone},
       </if>
       <if test="buyerAddress != null">
-        #{buyerAddress,jdbcType=INTEGER},
+        #{buyerAddress},
       </if>
       <if test="buyerOpenid != null">
-        #{buyerOpenid,jdbcType=VARCHAR},
+        #{buyerOpenid},
       </if>
       <if test="orderAmount != null">
-        #{orderAmount,jdbcType=DECIMAL},
+        #{orderAmount},
       </if>
       <if test="orderStatus != null">
-        #{orderStatus,jdbcType=INTEGER},
+        #{orderStatus},
       </if>
       <if test="payStatus != null">
-        #{payStatus,jdbcType=INTEGER},
+        #{payStatus},
       </if>
       <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
+        #{createTime},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+        #{updateTime},
       </if>
     </trim>
   </insert>
@@ -115,47 +114,47 @@
     update mysell.order_master_info
     <set>
       <if test="buyerName != null">
-        buyer_name = #{buyerName,jdbcType=VARCHAR},
+        buyer_name = #{buyerName},
       </if>
       <if test="buyerPhone != null">
-        buyer_phone = #{buyerPhone,jdbcType=VARCHAR},
+        buyer_phone = #{buyerPhone},
       </if>
       <if test="buyerAddress != null">
-        buyer_address = #{buyerAddress,jdbcType=INTEGER},
+        buyer_address = #{buyerAddress},
       </if>
       <if test="buyerOpenid != null">
-        buyer_openid = #{buyerOpenid,jdbcType=VARCHAR},
+        buyer_openid = #{buyerOpenid},
       </if>
       <if test="orderAmount != null">
-        order_amount = #{orderAmount,jdbcType=DECIMAL},
+        order_amount = #{orderAmount},
       </if>
       <if test="orderStatus != null">
-        order_status = #{orderStatus,jdbcType=INTEGER},
+        order_status = #{orderStatus},
       </if>
       <if test="payStatus != null">
-        pay_status = #{payStatus,jdbcType=INTEGER},
+        pay_status = #{payStatus},
       </if>
       <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime},
       </if>
       <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.OrderMasterInfoEntity">
 
     update mysell.order_master_info
-    set buyer_name = #{buyerName,jdbcType=VARCHAR},
-      buyer_phone = #{buyerPhone,jdbcType=VARCHAR},
-      buyer_address = #{buyerAddress,jdbcType=INTEGER},
-      buyer_openid = #{buyerOpenid,jdbcType=VARCHAR},
-      order_amount = #{orderAmount,jdbcType=DECIMAL},
-      order_status = #{orderStatus,jdbcType=INTEGER},
-      pay_status = #{payStatus,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=BIGINT}
+    set buyer_name = #{buyerName},
+      buyer_phone = #{buyerPhone},
+      buyer_address = #{buyerAddress},
+      buyer_openid = #{buyerOpenid},
+      order_amount = #{orderAmount},
+      order_status = #{orderStatus},
+      pay_status = #{payStatus},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
   </update>
 </mapper>

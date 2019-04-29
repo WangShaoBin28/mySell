@@ -3,12 +3,12 @@
 <mapper namespace="com.app.mysell.dao.CommentInfoMapper">
     <resultMap id="BaseResultMap" type="com.app.mysell.entity.CommentInfoEntity">
 
-        <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="open_id" jdbcType="VARCHAR" property="openId"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl"/>
-        <result column="content" jdbcType="VARCHAR" property="content"/>
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <id column="id" property="id"/>
+        <result column="open_id" property="openId"/>
+        <result column="name" property="name"/>
+        <result column="avatar_url" property="avatarUrl"/>
+        <result column="content" property="content"/>
+        <result column="create_time" property="createTime"/>
     </resultMap>
     <sql id="Base_Column_List">
     id, open_id, `name`, avatar_url, content, create_time
@@ -18,20 +18,20 @@
         select
         <include refid="Base_Column_List"/>
         from mysell.comment_info
-        where id = #{id,jdbcType=BIGINT}
+        where id = #{id}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     
     delete from mysell.comment_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id}
   </delete>
     <insert id="insert" parameterType="com.app.mysell.entity.CommentInfoEntity">
     
     insert into mysell.comment_info (id, open_id, `name`, 
       avatar_url, content, create_time
       )
-    values (#{id,jdbcType=BIGINT}, #{openId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{avatarUrl,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+    values (#{id}, #{openId}, #{name}, 
+      #{avatarUrl}, #{content}, #{createTime}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.app.mysell.entity.CommentInfoEntity">
@@ -58,22 +58,22 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
-                #{id,jdbcType=BIGINT},
+                #{id},
             </if>
             <if test="openId != null">
-                #{openId,jdbcType=VARCHAR},
+                #{openId},
             </if>
             <if test="name != null">
-                #{name,jdbcType=VARCHAR},
+                #{name},
             </if>
             <if test="avatarUrl != null">
-                #{avatarUrl,jdbcType=VARCHAR},
+                #{avatarUrl},
             </if>
             <if test="content != null">
-                #{content,jdbcType=VARCHAR},
+                #{content},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=TIMESTAMP},
+                #{createTime},
             </if>
         </trim>
     </insert>
@@ -82,31 +82,31 @@
         update mysell.comment_info
         <set>
             <if test="openId != null">
-                open_id = #{openId,jdbcType=VARCHAR},
+                open_id = #{openId},
             </if>
             <if test="name != null">
-                `name` = #{name,jdbcType=VARCHAR},
+                `name` = #{name},
             </if>
             <if test="avatarUrl != null">
-                avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+                avatar_url = #{avatarUrl},
             </if>
             <if test="content != null">
-                content = #{content,jdbcType=VARCHAR},
+                content = #{content},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=TIMESTAMP},
+                create_time = #{createTime},
             </if>
         </set>
-        where id = #{id,jdbcType=BIGINT}
+        where id = #{id}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.app.mysell.entity.CommentInfoEntity">
     
     update mysell.comment_info
-    set open_id = #{openId,jdbcType=VARCHAR},
-      `name` = #{name,jdbcType=VARCHAR},
-      avatar_url = #{avatarUrl,jdbcType=VARCHAR},
-      content = #{content,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=BIGINT}
+    set open_id = #{openId},
+      `name` = #{name},
+      avatar_url = #{avatarUrl},
+      content = #{content},
+      create_time = #{createTime}
+    where id = #{id}
   </update>
 </mapper>

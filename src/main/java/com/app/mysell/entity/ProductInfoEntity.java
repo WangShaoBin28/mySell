@@ -42,7 +42,7 @@ public class ProductInfoEntity {
     /**
     * 商品小图
     */
-    private String producticon;
+    private String productIcon;
 
     /**
     * 商品上下架 1正常 2下架
