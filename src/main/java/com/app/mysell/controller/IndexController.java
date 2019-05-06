@@ -17,6 +17,6 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(ModelMap modelMap) {
-        return "panel/index";
+        return "login/login";
     }
 }
