@@ -7,6 +7,7 @@
 		<title>后台登录</title>
 		<link rel="stylesheet" type="text/css" href="../admin/layui/css/layui.css" />
 		<link rel="stylesheet" type="text/css" href="../admin/css/login.css" />
+        <script src="webjars/jquery/3.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
@@ -26,7 +27,7 @@
 								<input type="text" name="verity" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
 							</div>
 							<div class="layui-inline">
-								<img class="verifyImg" onclick="this.src=this.src+'?c='+Math.random();" src="..//admin/images/login/yzm.jpg" />
+								<img class="verifyImg" onclick="this.src=this.src+'?c='+Math.random();" src="../admin/images/login/yzm.jpg" />
 							</div>
 						</div>
 						<div class="layui-form-item m-login-btn">
@@ -63,14 +64,28 @@
 
 				
 				//监听提交
-				form.on('submit(login)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-					})
-					return false;
-				});
-
-			});
+                form.on('submit(login)', function (data) {
+                    //通过ajax进行对账号密码校验
+                    $.ajax({
+                        type: "get",
+                        url: "/login/checkLogin",
+                        data: "phone=1" + "&cardno=2",
+                        success: function (data) {
+                            if (data === 'ok') {
+                                layer.alert('注册成功！', {icon: 1});
+                                var url = "{:U('device/getinfo')}"; //成功跳转的url
+                                setTimeout(window.location.href=url,2000);
+                            } else {
+                                layer.msg(data.msg, {icon: 2});
+                            }
+                        }
+                    });
+                    // layer.alert(JSON.stringify(data.field), {
+                    // 	title: '最终的提交信息'
+                    // })
+                    return false;
+                });
+            });
 		</script>
 	</body>
 
