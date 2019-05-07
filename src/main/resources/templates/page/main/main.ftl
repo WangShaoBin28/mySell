@@ -70,7 +70,7 @@
 					  <li class="layui-nav-item">
 					    <a href="javascript:;" data-url="admin-info.html" data-id='5' data-text="个人信息">超级管理员</a>
 					  </li>
-					  <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
+					  <li class="layui-nav-item"><a href="/login/loginOut">退出</a></li>
 					</ul>
 				</div>
 				<!--主体内容-->
@@ -83,7 +83,7 @@
 					  <div class="layui-tab-content">
 					    <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
 					    	<!--1-->
-					    	<iframe src="welcome.html" width="100%" height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
+					    	<iframe src="/main/panel" width="100%" height="100%" name="iframe" scrolling="auto" class="iframe" framborder="0"></iframe>
 					    	<!--1end-->
 					    </div>
 					  </div>
@@ -97,7 +97,7 @@
 		</div>
 		<script type="text/javascript">
 			var scope={
-				link:'./welcome.html'
+				link:'/panel'
 			}
 		</script>
 		<script src="../admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>

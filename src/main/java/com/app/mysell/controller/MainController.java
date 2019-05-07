@@ -19,8 +19,14 @@ public class MainController {
     public String main() {
         //根据角色获取相对应的菜单 登录信息
 
-
         return "main/main";
+    }
+
+    @RequestMapping("panel")
+    public String panel() {
+        //根据角色获取相对应的菜单 登录信息
+
+        return "main/panel";
     }
 
 }
