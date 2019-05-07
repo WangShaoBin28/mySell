@@ -73,8 +73,8 @@
                         success: function (data) {
                             if (data === 'ok') {
                                 layer.alert('注册成功！', {icon: 1});
-                                var url = "{:U('device/getinfo')}"; //成功跳转的url
-                                setTimeout(window.location.href=url,2000);
+                                var url = "{:U('/main/main')}"; //成功跳转的url
+                                setTimeout(window.location.href='/main/main',2000);
                             } else {
                                 layer.msg(data.msg, {icon: 2});
                             }

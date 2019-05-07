@@ -24,13 +24,10 @@ public class LoginController {
 
 
     @GetMapping("checkLogin")
-    public String checkLogin(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public String checkLogin(HttpServletRequest request) {
         //异步校验账号密码是否正确，如果成功后进行把用户ID存入cookie
 //        Object loginName = request.getSession().getAttribute("loginName");
-//        request.getSession().setAttribute("loginName", "王少彬");
-        Cookie cookie = new Cookie("loginName", URLEncoder.encode("王少彬", "utf-8"));
-        cookie.setMaxAge(30 * 24 * 60 * 60);
-        response.addCookie(cookie);
+        request.getSession().setAttribute("loginName", "王少彬");
         return "ok";
     }
 

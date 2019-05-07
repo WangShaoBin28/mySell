@@ -27,9 +27,11 @@ public class LoginConfiguration implements WebMvcConfigurer {
         loginRegistry.excludePathPatterns("/");
         loginRegistry.excludePathPatterns("/login");
         loginRegistry.excludePathPatterns("/login/*");
+        loginRegistry.excludePathPatterns("/webjars/**");
         loginRegistry.excludePathPatterns("/loginout");
         // 排除资源请求
         loginRegistry.excludePathPatterns("/admin/**");
+        loginRegistry.excludePathPatterns("/static/**");
     }
 
 }
