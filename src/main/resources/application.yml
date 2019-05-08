@@ -2,7 +2,7 @@ server:
   port: 8090
 spring:
   freemarker:
-    template-loader-path: classpath:/templates/
+    template-loader-path: classpath:/templates/page/
     suffix: .ftl
     cache: false
     #数据库访问配置
@@ -22,7 +22,7 @@ spring:
     testWhileIdle: true
     timeBetweenEvictionRunsMillis: 60000
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://127.0.0.1:3306/haiyu?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/mysell?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: root
     validationQuery: SELECT 1 FROM DUAL
