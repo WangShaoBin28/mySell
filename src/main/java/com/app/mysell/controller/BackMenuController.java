@@ -29,4 +29,10 @@ public class BackMenuController {
     }
 
 
+    @GetMapping("menu2")
+    public String backMenu2() {
+        return "backMenu/menu2";
+    }
+
+
 }
