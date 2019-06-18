@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.net.URLEncoder;
 
 /**
  * @Package com.app.mysell.controller
@@ -25,9 +28,10 @@ public class LoginController {
 
     @GetMapping("checkLogin")
     @ResponseBody
-    public String checkLogin(HttpServletRequest request) {
+    public String checkLogin(HttpServletRequest request,HttpServletResponse response) {
         //异步校验账号密码是否正确，如果成功后进行把用户ID存入cookie
         request.getSession().setAttribute("loginName", "王少彬");
+//        setCookie(response,"userName","wangshaobin",0);
         return "ok";
     }
 
@@ -45,5 +49,6 @@ public class LoginController {
         log.info("退出登录操作");
         return "redirect:/";
     }
+
 
 }
