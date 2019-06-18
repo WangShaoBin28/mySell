@@ -1,5 +1,6 @@
 package com.app.mysell.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import lombok.Data;
 
@@ -32,6 +33,11 @@ public class UserInfoEntity {
     * 用户微信号ID
     */
     private String openid;
+
+    /**
+     * 出生日
+     */
+    private LocalDate birthday;
 
     /**
     * 创建时间

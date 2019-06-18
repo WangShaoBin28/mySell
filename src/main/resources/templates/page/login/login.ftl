@@ -17,14 +17,14 @@
 				<div class="m-login-warp">
 					<form class="layui-form">
 						<div class="layui-form-item">
-							<input type="text" name="title" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+							<input type="text" name="title" required lay-verify="required" value="1" placeholder="用户名" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-form-item">
-							<input type="text" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+							<input type="text" name="password" required lay-verify="required" value="1" placeholder="密码" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-form-item">
 							<div class="layui-inline">
-								<input type="text" name="verity" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
+								<input type="text" name="verity" required lay-verify="required" value="1" placeholder="验证码" autocomplete="off" class="layui-input">
 							</div>
 							<div class="layui-inline">
 								<img class="verifyImg" onclick="this.src=this.src+'?c='+Math.random();" src="../admin/images/login/yzm.jpg" />

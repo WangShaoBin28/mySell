@@ -7,12 +7,13 @@
     <result column="user_name" property="userName" />
     <result column="phone" property="phone" />
     <result column="openid" property="openid" />
+    <result column="birthday" property="birthday" />
     <result column="createTime" property="createtime" />
     <result column="updateTime" property="updatetime" />
   </resultMap>
   <sql id="Base_Column_List">
 
-    id, user_name, phone, openid, createTime, updateTime
+    id, user_name, phone,birthday ,openid, createTime, updateTime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
 
@@ -46,6 +47,9 @@
       <if test="openid != null">
         openid,
       </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
       <if test="createtime != null">
         createTime,
       </if>
@@ -62,6 +66,9 @@
       </if>
       <if test="openid != null">
         #{openid},
+      </if>
+      <if test="birthday != null">
+        #{birthday},
       </if>
       <if test="createtime != null">
         #{createtime},
