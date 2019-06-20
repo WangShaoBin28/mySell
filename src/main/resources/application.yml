@@ -31,7 +31,7 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     type: com.alibaba.druid.pool.DruidDataSource
 #    url: jdbc:mysql://120.79.156.173:3306/mysell?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-
+    url: jdbc:mysql://yzhd.site:3306/mysell?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: WangShaoBin0415
     validationQuery: SELECT 1 FROM DUAL
