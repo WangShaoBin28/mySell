@@ -28,6 +28,7 @@
 				    <dl class="layui-nav-child">
 				      <dd><a href="javascript:;" data-url="/content/articleList" data-id='3' data-text="文章管理"><span class="l-line"></span>文章管理</a></dd>
 				      <dd><a href="javascript:;" data-url="/content/danyeList" data-id='9' data-text="单页管理"><span class="l-line"></span>单页管理</a></dd>
+				      <dd><a href="javascript:;" data-url="/content/userList?pageNum=1&pageSize=10" data-id='9' data-text="用户管理"><span class="l-line"></span>用户管理</a></dd>
 				    </dl>
 				  </li>
 				  <li class="layui-nav-item">

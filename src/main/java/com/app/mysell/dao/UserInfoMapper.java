@@ -1,8 +1,11 @@
 package com.app.mysell.dao;
 
 import com.app.mysell.entity.UserInfoEntity;
+import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @Package ${PACKAGE_NAME}
@@ -26,4 +29,7 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfoEntity record);
 
     int updateByPrimaryKey(UserInfoEntity record);
+
+    List<UserInfoEntity> selectUserInfoPage();
+
 }

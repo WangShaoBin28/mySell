@@ -5,7 +5,15 @@ spring:
     template-loader-path: classpath:/templates/page/
     suffix: .ftl
     cache: false
-    #数据库访问配置
+    settings:
+      classic_compatible: true
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html; charset=utf-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+
   datasource:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -22,9 +30,10 @@ spring:
     testWhileIdle: true
     timeBetweenEvictionRunsMillis: 60000
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://127.0.0.1:3306/mysell?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+#    url: jdbc:mysql://120.79.156.173:3306/mysell?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+
     username: root
-    password: 123456
+    password: WangShaoBin0415
     validationQuery: SELECT 1 FROM DUAL
   application:
     name: MySell
