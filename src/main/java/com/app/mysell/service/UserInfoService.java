@@ -1,8 +1,6 @@
 package com.app.mysell.service;
 
-import com.app.mysell.common.model.ReturnInfo;
 import com.app.mysell.entity.UserInfoEntity;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 
 /**
